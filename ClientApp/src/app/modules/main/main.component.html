@@ -1,0 +1,70 @@
+<nz-layout class="layout">
+  <nz-sider nzTheme="light" nzBreakpoint="lg" [nzCollapsedWidth]="0">
+      <div class="d-flex flex-column" style="height: 100vh;">
+          <div class="border-bottom d-flex justify-content-center pt-2 pb-2">
+              <img style="height: 60px" src="../../assets/images/app/logo.jpg">
+          </div>
+          <div class="flex-grow-1" style="overflow-y: auto;height: 100%;">
+              <ul nz-menu nzTheme="light" nzMode="inline">
+                  <li nz-menu-item nzMatchRouter>
+                      <i class="fas fa-map-marked"></i>
+                      <a class="ml-2" routerLink="./toa_xe">Toa xe</a>
+                  </li>
+              </ul>
+          </div>
+          <div class="border-top p-2">
+              <div class="d-flex justify-content-center align-items-center">
+                  <img class="image-login" [src]="url">
+                  <div class="flex-grow-1 ml-2">
+                      <div>{{name}}</div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </nz-sider>
+  <nz-layout class="right-layout">
+      <div class="bar-header">
+          <div class="d-flex align-items-center">
+              <div class="button-menu" (click)="openBarMenu()">
+                  <i class="fas fa-bars"></i>
+              </div>
+          </div>
+      </div>
+      <nz-content class="area-content">
+        <router-outlet></router-outlet>        
+    </nz-content>
+  </nz-layout>
+</nz-layout>
+<nz-drawer [nzClosable]="false" 
+          [nzVisible]="visibleBarMenu"
+          nzPlacement="left" 
+          nzWidth="300px"
+          (nzOnClose)="closeBarMenu()">
+  <ng-container *nzDrawerContent>
+      <div style="margin:-24px">
+          <div class="d-flex flex-column" style="height: 100vh;">
+              <div class="border-bottom d-flex justify-content-center pt-2 pb-2">
+                  <img style="height: 60px" src="../../assets/images/app/logo.jpg">
+              </div>
+              <div class="flex-grow-1" style="overflow-y: auto;height: 100%;">
+                  <ul nz-menu nzTheme="light" nzMode="inline">
+                      <li nz-menu-item nzMatchRouter>
+                          <i class="fas fa-map-marked"></i>
+                          <a (click)="closeBarMenu()" class="ml-2" routerLink="./toa_xe">Toa xe</a>
+                      </li>
+                  </ul>
+              </div>
+              <div class="border-top p-2">
+                  <div class="d-flex justify-content-center align-items-center">
+                      <img class="image-login" [src]="url">
+                      <div class="flex-grow-1 ml-2">
+                          <div>{{name}}</div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+  </ng-container>
+</nz-drawer>
+

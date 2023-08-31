@@ -1,0 +1,9 @@
+{
+    "version": "1.0.0",
+    "extern": {
+        "url":"http://localhost:24185",
+        "urls":"https://apitrain.dgt-iot.com.vn"
+    },
+    "url":"http://updatewin.dgt-iot.com.vn",
+    "urls":"https://updatewin.dgt-iot.com.vn"
+}

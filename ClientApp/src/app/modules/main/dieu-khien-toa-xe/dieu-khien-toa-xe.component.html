@@ -1,0 +1,41 @@
+<div style="display: flex;flex-direction: column;height: 100%;">
+  <nz-row style="margin: 5px 0px 0px 0px;">
+    <div nz-col nzXs="24" nzSm="24" nzMd="24" nzLg="8" nzXl="8" >
+      <div style="display: flex;align-items: center;width: 100%;">
+        <div style="margin-right: 10px;margin-left: 10px;width: 80px;">Bắt đầu :</div>
+        <nz-date-picker style="flex-grow: 1; flex-basis: 100px;margin-bottom: 5px;"
+          nzShowTime
+          nzFormat="yyyy-MM-dd HH:mm:ss"
+          [(ngModel)]="startTime"
+        ></nz-date-picker>
+      </div>
+    </div>
+    <div nz-col nzXs="24" nzSm="24" nzMd="24" nzLg="8" nzXl="8" >
+      <div style="display: flex;align-items: center;width: 100%;">
+        <div style="margin-right: 10px;margin-left: 10px;width: 80px;">Kết thúc :</div>
+        <nz-date-picker style="flex-grow: 1; flex-basis: 100px;margin-bottom: 5px;"
+          nzShowTime
+          nzFormat="yyyy-MM-dd HH:mm:ss"
+          [(ngModel)]="endTime"
+        ></nz-date-picker>
+      </div>
+    </div>
+    <div nz-col nzXs="24" nzSm="24" nzMd="24" nzLg="8" nzXl="8" >
+      <div style="display: flex;align-items: center;width: 100%;">
+        <div style="margin-right: 10px;margin-left: 10px;width: 80px;">Giới hạn :</div>
+        <input nz-input [(ngModel)]="limit" style="width: 90px;margin-right: 10px;" type="number" min="1000" max="50000">
+        <button nz-button nzType="primary" (click)="searchHistory()">Tìm kiếm</button>
+      </div>
+    </div>
+  </nz-row>
+  <div style="flex-grow: 1;flex-basis: 400px;">
+    <div *ngIf="isDesktop==true" style="height: 100%;">
+      <app-desktop></app-desktop>
+    </div>
+    <div *ngIf="isDesktop==false" style="height: 100%;">
+      <app-mobile></app-mobile>
+    </div>    
+  </div>
+</div>
+<app-history #history></app-history>
+

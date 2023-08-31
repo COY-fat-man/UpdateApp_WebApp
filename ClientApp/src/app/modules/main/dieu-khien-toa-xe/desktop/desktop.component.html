@@ -1,0 +1,37 @@
+<div style="display: flex;flex-direction: row;height: 100%;">
+  <div style="display: flex;flex-direction: column; width: 300px;border-top: 1px solid rgb(208, 208, 208)">
+    <div style="display: flex;align-items: center;padding: 10px;">
+      <div style="margin-right: 10px;">Kết nối lần cuối :</div>
+      <div>{{status?.createdAt |timeFormat}}</div>
+    </div>
+    <div style="flex-grow: 1;flex-basis: 400px;overflow-y: auto;margin-left: 5px;">
+      <div style="background: white;position: relative;margin-bottom: 10px;">
+        <div style="height: 200px;" id="temperature-gauge1"  [value]="temp0" temperature-gauge></div>
+        <div style="position: absolute;bottom: 0px;left: 50%; transform: translate(-50%,-50%);">Nhiệt độ 1</div>
+      </div>
+      <div style="background: white;position: relative;margin-bottom: 10px;">
+        <div style="height: 200px;" id="temperature-gauge2" color="#F35CE9" [value]="temp1" temperature-gauge></div>
+        <div style="position: absolute;bottom: 0px;left: 50%; transform: translate(-50%,-50%);">Nhiệt độ 2</div>
+      </div>
+      <div style="background: white;position: relative;margin-bottom: 10px;">
+        <div style="height: 200px;" id="temperature-gauge3" [value]="temp2" temperature-gauge></div>
+        <div style="position: absolute;bottom: 0px;left: 50%; transform: translate(-50%,-50%);">Nhiệt độ 3</div>
+      </div>
+      <div  style="background: white;display: block;position: relative;margin-bottom: 10px;height:150px;">
+        <div style="position: absolute;left: 40%;top: 10%;" >CONFIG</div>
+        <button style="position: absolute;left: 5%;top: 40%; border-color:rgb(117, 210, 238) ; border-radius: 15px ; "  (click)="ClickTimeRoleRun (timeRoleRun.value)">Set time role run</button>
+        <input type="number" style="position: absolute;left: 60%;top: 40%;  width: 60px;" #timeRoleRun  />
+        <output>{{time_Role_Run}}</output>
+        <p style="position: absolute;left: 83%;top: 45%; ">ms</p>
+        <button style="position: absolute;left: 5%;top: 70%;border-color:rgb(117, 210, 238) ; border-radius: 15px ; " (click)="ClickTimeWait(timeWait.value)">Set time wait</button>
+        <input type="number" style="position: absolute;left: 60%;top: 70%; width: 60px;" #timeWait (keyup)="0"/>
+        <output>{{time_Wait}}</output>
+        <p style="position: absolute;left: 83%;top: 75%; ;">ms</p>
+      </div>  
+    </div>   
+  </div>
+  <div style="flex-grow: 1;flex-basis: 500px;
+              height: 100%;padding: 10px;border: 1px solid rgb(208, 208, 208);">
+    <div #chartHistory id="chart-history-temperature" appTemperatureChart [data]="data" style="height: 100%;"></div>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+<nz-drawer
+      [nzClosable]="true"
+      [nzVisible]="visible"
+      nzWidth="100vw"
+      nzHeight="100vh"
+      nzPlacement="right"
+      nzTitle="Lịch sử nhiệt độ"
+      (nzOnClose)="close()"
+    >
+      <ng-container *nzDrawerContent>
+        <div style="margin: -15px;">
+          <div #chartHistory id="chart-history" appTemperatureChart [data]="data" 
+          style="height: 90vh;"></div>
+        
+        </div>
+      </ng-container>
+    </nz-drawer>
